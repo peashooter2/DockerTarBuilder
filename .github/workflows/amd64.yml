@@ -22,7 +22,6 @@ jobs:
   
     - name: Pull Docker Images and Package
       run: |
-        docker login --username=peashooter2 https://registry-1.docker.io/v2/
         images="${{ github.event.inputs.docker_images }}"
         IFS=',' read -r -a image_array <<< "$images"
         for image in "${image_array[@]}"; do
