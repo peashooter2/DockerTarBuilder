@@ -24,6 +24,8 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: peashooter2
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+  
     - name: Pull Docker Images and Package
       run: |
         images="${{ github.event.inputs.docker_images }}"
