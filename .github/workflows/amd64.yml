@@ -24,7 +24,6 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: peashooter2
-        password: Vandoor_554
   
     - name: Pull Docker Images and Package
       run: |
