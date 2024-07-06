@@ -19,10 +19,13 @@ jobs:
       run: |
           docker system prune -a -f
           docker volume prune -f
-
+    - name: Login to DockerHub
+      if: github.event_name == 'push'
+      uses: docker/login-action@v3
+      with:
+        username: peashooter2
     - name: Pull Docker Images and Package
       run: |
-        docker login
         images="${{ github.event.inputs.docker_images }}"
         IFS=',' read -r -a image_array <<< "$images"
         for image in "${image_array[@]}"; do
